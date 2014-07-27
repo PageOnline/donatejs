@@ -37,9 +37,11 @@ addStyle('html{transition:.5s ease-in;-webkit-transition:.5s ease-in;-moz-transi
 
 donateButton.textContent = 'Donate';
 donateText.innerHTML = 'Help me do what I love. ' + donateButton.outerHTML + ' through PayPal.';
-  
-donateElement.addEventListener('click', function() {
-  window.open(url);
+
+donateElement.addEventListener('click', function(event) {
+    if(!(event.x >= donateElement.offsetWidth - 62)) {
+        window.open(url);
+    }
 }, false);
 
 donateElement.appendChild(donateText);
